@@ -20,15 +20,45 @@ Here we describe the development of each step of the project. The main objective
  which help us isolate the categories. Then we look for the ratings of each of them and we plot a figure that represents the average ratings per category. 
  Moreover, we analyze the correlation between numerical elements such as fat and calories with the target rating, we computed a correlation matrix. A positive
  correlation closer to 1 between 2 variables means that the two have a linear relation, if one increases, the other one increases as well. Correlation close to 0 
- means that there is no linear relation. And negative correlation means that the variables are inversely related. 
+ means that there is no linear relation. And negative correlation means that the variables are inversely related. The matrix can be seen in the following picture.
  
  ![image](https://github.com/user-attachments/assets/70e7ed09-cbdd-4200-be20-815723f3652c)
 
 
-3. Implementation of a pipeline for text processing
+2. Implementation of a pipeline for text processing
 
+      In this section we first import the NLTK library, which is a powerful toolkit for working with text data in Python. We import the re module, used for pattern matching and text cleaning.
+   We use preprocessing functions in order to improve the quality of textual data by: eliminating elements that do not add value, unifying the format of the text and reducing the complexity of
+   the vocabulary, in order to prepare the text for models to process it more efficiently and accurately.
 
-4. Vector representation of the document usinf three different procedures
+   2.1. Preprocess "Desc" column
+   
+      In order to process the descriptions of our recipies we have created a function called "preprocess_text" which takes each input text and converts it to non capital letters and removes special characters,
+   numbers and stopwords. This function is applied to our data. Then, we tokenize the text using the function "tokenize". The output is a dictionary called "my corpus". We conclude that the dictionary contains
+   5764 terms, where terms refers to all the relative words contained in  the description variable of all the recipes in the dataset.
+
+   ![image](https://github.com/user-attachments/assets/a42e5239-b445-42b4-bd42-95619402516a) 
+
+   2.2. Identify the number of descriptions in which each token appears
+   
+      In this step we identify the frequency of each token, the number of recipies in which each token appers. The output shows two columns (Token, Number of descriptions in each it appears).
+   We have program the code to do so in the following way:
+   - Build a DataFrame with each token and its frequency in the descriptions.
+   - Sort tokens by frequency.
+   - Count and filter the tokens that are infrequent or very frequent, filter extremes.
+   - Visualize the logarithmic distribution of the frequencies with a histogram.
+     Printing the following result:
+     
+     ![image](https://github.com/user-attachments/assets/7b902a8b-48ca-42da-aaa6-ac0df5e3687a)
+   
+   
+   2.3. Bag of words representation of the corpus
+   A bag of words is a simple way to convert text into numerical data. We create a vocabulary of unique words (mycorpus) from the entire corpus (all descriptions of the recipes). For each description, count how many times each word containing 'desc' from the          
+   vocabulary appears. The code programmed to do so, returns a sparse vector, which is a list of tuples (token_id, frequency). Where token_id is the ID of the word in the dictionary D and frequency is how many times that word appears in the recipe.
+   
+   
+
+5. Vector representation of the document usinf three different procedures
  In this section three vectorization methods have been used, TF-IDF, Word2Vec and Trasformers.
  It is important to mention that the input data used here corresponds to the column "Descriptions".
   
@@ -51,7 +81,7 @@ Here we describe the development of each step of the project. The main objective
        the roberta-based model. 
 
 
-5. Training and evaluation of regression model.
+6. Training and evaluation of regression model.
    
     Once the vectorization of the descriptions has been done we proceed to use the embeddings to train and evaluate predicction models. Random Forest and Neural Networks have been used,
     from the scikit learn tool. The results are represented in the table below. Here the two models have been used with they default parameters. Nevertheless, in order to achieve
