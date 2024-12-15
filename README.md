@@ -15,13 +15,12 @@ Here we describe the development of each step of the project. The main objective
  contain numerical values and the rest of the variables contain text.
     
     As a third step, we eliminate null lines in this dataset, with the 'isna' function, and proceed to visualize the relationship between the different input 
- variables. We focuss on the 'raiting' of each recipe as our target variable and it's relation with the 'categories'. We look to see if the rating of a 
+ variables. We focuss on the 'rating' of each recipe as our target variable and it's relation with the 'categories'. We look to see if the rating of a 
  recipe depends on the categorie it has. Firstly we keep the 10 most common categories among all recipies, using functions like 'value_counts()' and 'explode()'
  which help us isolate the categories. Then we look for the ratings of each of them and we plot a figure that represents the average ratings per category. 
- Moreover, we analyze the correlation between numerical elements such as fat and calories with the target rating, we computed a correlation matrix. A positive
- correlation closer to 1 between 2 variables means that the two have a linear relation, if one increases, the other one increases as well. Correlation close to 0 
- means that there is no linear relation. And negative correlation means that the variables are inversely related. The matrix can be seen in the following picture.
- 
+ A part from analysing 'categories', we implemented a correlation relationship between numerical elements such as fat and calories with the target rating. We computed
+a correlation matrix where a positive correlation closer to 1 between 2 variables means that the 2 vaariables have a proportional relation, if one increases, the other one increases as well.
+Correlation close to 0 means that there is no linear relation. And negative correlation means that the variables are inversely related. The matrix can be seen in the following picture 
  ![image](https://github.com/user-attachments/assets/70e7ed09-cbdd-4200-be20-815723f3652c)
 
 
@@ -58,7 +57,7 @@ Here we describe the development of each step of the project. The main objective
    
    
 
-5. Vector representation of the document usinf three different procedures
+3. Vector representation of the document usinf three different procedures
  In this section three vectorization methods have been used, TF-IDF, Word2Vec and Trasformers.
  It is important to mention that the input data used here corresponds to the column "Descriptions".
   
@@ -66,12 +65,15 @@ Here we describe the development of each step of the project. The main objective
 
        To develop this method, BoW (Bag of words) has been previously done. BoW provides what we call corpus, which is the base of our TF-IDF model. The data used here
        has been previously treated using the preprocessed function mentioned above. We have used the Gensim libary thanks to which we are able to transform the corpus
-       in to a weighted representation based on the frequency of words in a recipe and across the whole dataset.
+       in to a weighted representation based on the frequency of words in a recipe and across the whole dataset. Furthermore, we train a TF-IDF model that uses the corpus
+      (in BoW format) to compute the relative word importances in each recipe. After, we transform the corpus converting each document to its TF-IDF representation for further analysis.
      
    --> Word2vec
 
        For Word2vec vectorization we use Gensim library which generates word embeddings using the previous tokenized corpus. Each description is shown as the mean of the
        embeddings of it's words. Words that are not in the vocubulary of the model are not considered. Results are saved in a numpy array.
+       Furthermore, in this section our code uses Word2Vec to represent textual data (descriptions) in a meaningful numerical format. It then computes the average embedding
+       for each description in mycorpus to represent the entire description as a single vector.
        
    --> Transformers
 
@@ -79,9 +81,28 @@ Here we describe the development of each step of the project. The main objective
        ensuring a maximum input leght of 512 tokens. Then data is processed in batches of size 16 for more efficient computation. We obtain the mean embeddings from the
        last hidden layer, obtaining one vector representation per input, which is stored in a numpy array. The number of hidden layers and attention heads used is set by
        the roberta-based model. 
+       -- 1. Importing necessary tools
+           - datasets: A Hugging Face library to load and process datasets.
+           - torch: PyTorch, used for handling tensors and running models like RoBERTa.
+       -- 2. Transformer configuration
+            In this step, the purpose is to extract semantic embeddings from the recipe's descriptions using a pre-trained transformer model (RoBERTa). These embeddings
+            capture the meaning of the descriptions in a numerical form that machine learning models can use.
+       -- 3. Apply to our data
+            In this section, we applied the tools prepared in the step before to process the dataset and generate embeddings. To do so:
+          - First, we filter invalid data: Keeps only valid descriptions.
+          - Generate embeddings: Processes the dataset in manageable batches, using the RoBERTa model to extract embeddings for each recipe description.
+          - Save embeddings: Converts embeddings into a NumPy array and stores them for efficient reuse.
+            After this is being completed, we have a clean dataset and a corresponding embedding file (desc_embeddings.npy) that represents each recipe description as a
+            dense vector, ready for downstream machine learning or analysis tasks later on.
+       -- 4. Use of PCA for dimensionality reduction
+           As the title says, here we reduce the embedding size (768 dimensions) to 100 dimensions for efficiency.
+       -- 5. Load saved embeddings
+           Loading the previously saved embeddings (from Step 3, the original embeddings (desc_embeddings.npy) and the reduced embeddings (desc_embeddings_pca.npy))
+           into memory, so they can be used in further analysis or machine learning tasks.
+           In addition, we also extract the ratings column from the dataset as the target variable for training machine learning models.
 
 
-6. Training and evaluation of regression model.
+5. Training and evaluation of regression model.
    
     Once the vectorization of the descriptions has been done we proceed to use the embeddings to train and evaluate predicction models. Random Forest and Neural Networks have been used. The scikit learn tool and pytorch were used for their implementation. 
 
@@ -121,7 +142,7 @@ better results, GridSearchCV has been tried for Random Forest to perform Hyperpa
   TF-IDF vector.
 With optimized hyperparameters and bigger input data size, these evaluations could provide better results. More features may improve results but may  require careful preprocessing to avoid noise. We could also consider the data normalization. 
 
-5. Fine-tunning
+6. Fine-tunning
 
    As a final attempt to improve the results, a transformer with a regression head has been implemented here. As a first step we need to traing the model. To do so, we split out dataset into
    two train and test smaller datasets. Then we tokenized the training data, convert it to tensors, create a tensorDataset and use it to train the model using 3 epochs (Three complete
