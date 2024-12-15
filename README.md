@@ -175,5 +175,8 @@ As a result, we got Mean Squared Error: 1.5551816774332363, R² Score:0.08452808
 7. COMBINATION OF DIRECTIONS, DESCRIPTIONS AND CATEGORIES IN A UNIQUE INPUT DATASET
 
 In this part, we combined the three features in one input data for each recipe and repete the process to get the following results with random forest:
+Word2Vec:  Mean Squared Error: 1.5661794699829648, R² Score: 0.07805413672816763
+
+TD - IDF: Mean Squared Error: 1.6592607855772863, R² Score: 0.023260969339108373
 
 It can be clearly seen that Word2Vec is the best one with the minimum MSE and the closiest R2 score to 1. 
