@@ -114,38 +114,42 @@ contribute to the analysis, unifying the format of the text and reducing the com
            In addition, we also extract the ratings column from the dataset as the target variable for training machine learning models.
 
 
-6. TRAINING AND EVALUATION OF REGRESSION MODELS
-   
-    Once the vectorization of the descriptions has been done we proceed to use the embeddings to train and evaluate predicction models. Random Forest and Neural Networks have been chosen. The scikit learn tool and pytorch were used for their implementation. 
+5. TRAINING AND EVALUATION OF REGRESSION MODELS
 
- --> For the implementation of this neural network, here are the followed steps and their hyperparameters:  
+   Once the vectorization of the descriptions has been done we proceed to use the embeddings to train and evaluate predicction models. Random Forest and Neural Networks have been chosen. The scikit learn tool and pytorch were used. 
 
-Data splitting step
+   For the implementation of the Neural Network, here are the followed steps and their hyperparameters:  
 
-In data splitting, test_size = 0.2 to put 20% of the data in the testing dataset to ensure that the model is evaluated on unseen data.  
+   --> Data splitting step
+    
+    In data splitting, test_size = 0.2 to put 20% of the data in the testing dataset to ensure that the model is evaluated on unseen data.  
+    
+   --> Model implementation
 
-Model implementation
+    ReLU Activation Function helps the network learn efficiently by adding non-linearity so it effects learning efficiency and non-linearity
+    Number of hidden layers and neurons determines the model's capacity to learn patterns. 128 has been chosen for the first layer neuron number and 64 for the second one. 
 
-ReLU Activation Function helps the network learn efficiently by adding non-linearity so it effects learning efficiency and non-linearity
-Number of hidden layers and neurons determines the model's capacity to learn patterns. 128 has been chosen for the first layer neuron number and 64 for the second one. 
+   --> Training step
 
-Training step
+    Adam optimizer, efficient for deep learning tasks, has been used to adjust the model's weights using gradients to minimize the loss function. The learning rate controls the size of updates to the weights. Too
+    high value can overshoot the optimal solution and too low value slows training, so we chose 0.001 for our case. The number of epochs is the number of times the model sees the training data and the batch size is
+    the number of data processed at a time for efficiency. 
 
-Adam optimizer, efficient for deep learning tasks, has been used to adjust the model's weights using gradients to minimize the loss function. The learning rate controls the size of updates to the weights. Too high value can overshoot the optimal solution and too low value slows training, so we chose 0.001 for our case. 
-The number of epochs is the number of times the model sees the training data and the batch size is the number of data processed at a time for efficiency. 
+   --> In the evaluation step, the following metrics have been used.
 
-In the evaluation step, the following metrics have been used.
+    Mean Squared error or test Loss (MSE): Indicates how well the model predicts unseen data. It measures the average squared difference between predicted and actual values. The smaller the value is, the better predictions are.
+    R² Score: measures how well the model explains the variance in the target variable. The closer the value is to 1, the better it is.
+    Improvements: With optimized hyperparameters and sufficient data preprocessing, this approach could provide better results. More features may improve results but may  require careful preprocessing to avoid noise. We could also
+    consider the data normalization. 
 
-Mean Squared error or test Loss (MSE): Indicates how well the model predicts unseen data. It measures the average squared difference between predicted and actual values. The smaller the value is, the better predictions are.
-R² Score: measures how well the model explains the variance in the target variable. The closer the value is to 1, the better it is.
-Improvements: With optimized hyperparameters and sufficient data preprocessing, this approach could provide better results. More features may improve results but may  require careful preprocessing to avoid noise. We could also consider the data normalization. 
-
- --> Random forest
+   Implementation of the Random Forest:
  
-Thanks to Scikit Learn, this implementation is really easy to do. To get our results, we only needed two hyper parameters for the data splitting part and as in the Neural Network, we used 20% of the data for testing and 80% for the training part. This 80% is used to train the RandomForestRegressor model provided by scikit learn. Then the model predictions are made on the test data. Some hyperparameters such as random_state with the default value 42, n_estimators commonly set at 100 could be used to improve the results by trying to tune them to better values for better results. The same metrics of evaluation MSE and R² Score have been used. 
-
-The results are represented in the table below. Here the two models have been used with they default parameters as defined in the explanations. Nevertheless, in order to achieve
-better results, GridSearchCV has been tried for Random Forest to perform Hyperparameter selection, with results that do not differ much from the ones obtain with the default parameters.
+    Thanks to Scikit Learn, this implementation is really easy to do. To get our results, we only needed two hyper parameters for the data splitting part and as in the Neural Network, we used 20% of the data for testing and
+    80% for the training part. This 80% is used to train the RandomForestRegressor model provided by scikit learn. Then the model predictions are made on the test data. Some hyperparameters such as random_state with the default
+    value 42, n_estimators commonly set at 100 could be used to improve the results by      trying to tune them to better values for better results. The same metrics of evaluation MSE and R² Score have been used. 
+    
+    The results are represented in the table below. Here the two models have been used with they default parameters as defined in the explanations. Nevertheless, in order to achieve better results, GridSearchCV has been tried
+    for Random Forest to perform Hyperparameter selection, with results that do not differ much from the ones obtain with the default parameters.
 
 ![image](https://github.com/user-attachments/assets/97f8cf61-5410-4b86-a7d9-a26c3caa4885)
 
