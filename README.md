@@ -55,8 +55,8 @@ contribute to the analysis, unifying the format of the text and reducing the com
    
    
    2.3. Bag of words representation of the corpus
-   
-       Bag of words is a simple way to convert text into numerical data. We create a vocabulary of unique words (mycorpus) from the entire corpus (all descriptions of the recipes).
+
+   Bag of words is a simple way to convert text into numerical data. We create a vocabulary of unique words (mycorpus) from the entire corpus (all descriptions of the recipes).
    For each description, count how many times each word from the vocabulary appears. The code programmed to do so, returns a sparse vector, which is a list of tuples
    (token_id, frequency). Where token_id is the ID of the word in the dictionary D and frequency is how many times that word appears in the recipe.
 
