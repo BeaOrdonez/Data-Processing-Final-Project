@@ -107,8 +107,7 @@ contribute to the analysis, unifying the format of the text and reducing the com
             dense vector, ready for downstream machine learning or analysis tasks later on.
    
        -- 4. Use of PCA for dimensionality reduction
-           As the title says, here we reduce the embedding size (768 dimensions) to 100 dimensions for efficiency. 100 dimension that we believe that represent most of the variance
-           of the input data. 
+           As the title says, here we reduce the embedding size (768 dimensions) to 100 dimensions for efficiency. 
    
        -- 5. Load saved embeddings
            Loading the previously saved embeddings (from Step 3, the original embeddings (desc_embeddings.npy) and the reduced embeddings (desc_embeddings_pca.npy))
@@ -148,7 +147,7 @@ contribute to the analysis, unifying the format of the text and reducing the com
  
     Thanks to Scikit Learn, this implementation is really easy to do. To get our results, we only needed two hyper parameters for the data splitting part and as in the Neural Network, we used 20% of the data for testing and
     80% for the training part. This 80% is used to train the RandomForestRegressor model provided by scikit learn. Then the model predictions are made on the test data. Some hyperparameters such as random_state with the default
-    value 42, n_estimators commonly set at 100 could be used to improve the results by      trying to tune them to better values for better results. The same metrics of evaluation MSE and R² Score have been used. 
+    value 42, n_estimators commonly set at 100 could be used to improve the results by trying to tune them to better values for better results. The same metrics of evaluation MSE and R² Score have been used. 
     
     The results are represented in the table below. Here the two models have been used with they default parameters as defined in the explanations. Nevertheless, in order to achieve better results, GridSearchCV has been tried
     for Random Forest to perform Hyperparameter selection, with results that do not differ much from the ones obtain with the default parameters.
