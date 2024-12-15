@@ -1,10 +1,10 @@
 # Data-Processing-Final-Project
 
-Marta Montalban, Aïssétou Sogoba, Beatriz Ordóñez
+# Marta Montalbán, Aïssétou Sogoba, Beatriz Ordóñez
 
 Here we describe the development of each step of the project. The main objective is to apply Natural Language Processing (NLP) to process a set of recipies in the dataset "full_format_recipes". 
 
-1. ANALYSIS OF INPUT VARIABLES
+# 1. ANALYSIS OF INPUT VARIABLES
 
     First of all, our first step was to import the corresponding libraries and modules needed for our Python program. Those are the pandas library in order 
  to work with structured data, NumPy library for numerical computations and working with arrays, the termcolor library used to colorize text printed in the 
@@ -27,7 +27,7 @@ Here we describe the development of each step of the project. The main objective
  ![image](https://github.com/user-attachments/assets/70e7ed09-cbdd-4200-be20-815723f3652c)
 
 
-2. IMPLEMENTATION OF A PIPELINE FOR TEXT PROCESSING
+# 2. IMPLEMENTATION OF A PIPELINE FOR TEXT PROCESSING
 
      In this section we first import the NLTK library, which is a powerful toolkit for working with text data in Python. Then we also import the re module, used for pattern matching and text cleaning.
   We use preprocessing functions in order to improve the quality of textual data by eliminating elements that do
@@ -62,7 +62,7 @@ contribute to the analysis, unifying the format of the text and reducing the com
    For each description, count how many times each word from the vocabulary appears. The code programmed to do so, returns a sparse vector, which is a list of tuples
    (token_id, frequency). Where token_id is the ID of the word in the dictionary D and frequency is how many times that word appears in the recipe.
 
-4. VECTOR REPRESENTATION OF THE DOCUMENTS USING THREE DIFFERENT PROCEDURES
+# 3. VECTOR REPRESENTATION OF THE DOCUMENTS USING THREE DIFFERENT PROCEDURES
    
      In this section three vectorization methods have been used, TF-IDF, Word2Vec and Trasformers.
    It is important to mention that the input data used here corresponds only to the column "Descriptions".
@@ -116,7 +116,7 @@ contribute to the analysis, unifying the format of the text and reducing the com
            In addition, we also extract the ratings column from the dataset as the target variable for training machine learning models.
 
 
-5. TRAINING AND EVALUATION OF REGRESSION MODELS
+# 4. TRAINING AND EVALUATION OF REGRESSION MODELS
 
    Once the vectorization of the descriptions has been done we proceed to use the embeddings to train and evaluate predicction models. Random Forest and Neural Networks have been chosen. The scikit learn tool and pytorch were used. 
 
@@ -160,7 +160,7 @@ contribute to the analysis, unifying the format of the text and reducing the com
     TF-IDF vector. With optimized hyperparameters and bigger input data size, these evaluations could provide better results. More features may improve results but may  require careful preprocessing to 
     avoid noise. We could also consider the data normalization. 
 
-6. FINE-TUNING
+# 5. FINE-TUNING
 
    As a final attempt to improve the results, a transformer with a regression head has been implemented here. As a first step we need to train the model. The procedure is the following.
    
@@ -175,7 +175,7 @@ contribute to the analysis, unifying the format of the text and reducing the com
 
 ![image](https://github.com/user-attachments/assets/11efd02e-a7f1-4e57-8bee-63e66d9aa8f5)
     
-7. EXTENSION: BYTE-PAIR ENCODING (BPE) 
+# 6. EXTENSION: BYTE-PAIR ENCODING (BPE) 
     
     For the extension of our project, we chose another data representation named BPE (Byte-Pair Encoding).
     To train the BPE tokenizer, it has been initialized and configured with:
@@ -192,7 +192,7 @@ contribute to the analysis, unifying the format of the text and reducing the com
     Padding is done using 0 (commonly used as a [PAD] token). 
     As a result, we got Mean Squared Error: 1.5551816774332363, R² Score:0.08452808785616595
 
-8. COMBINATION OF THREE FEATURES: directions, descriptions and categories in a unique dataset as the input variables
+# 7. COMBINATION OF THREE FEATURES: directions, descriptions and categories in a unique dataset as the input variables
     
     In this part, we combined the three features in one input data for each recipe and repete the process to get the following results with random forest:
     
