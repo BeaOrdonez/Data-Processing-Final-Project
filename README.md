@@ -170,7 +170,7 @@ In the encode description, each description is tokenized into subword IDs using 
 To evaluate with Random Forest, since this algorithm requires fixed-length input, each sequence is padded to the length of the longest sequence in the dataset.
 Padding is done using 0 (commonly used as a [PAD] token). 
 
-As a reullt, we got Mean Squared Error: 1.5551816774332363, R² Score:0.08452808785616595
+As a result, we got Mean Squared Error: 1.5551816774332363, R² Score:0.08452808785616595
 
 7. COMBINATION OF DIRECTIONS, DESCRIPTIONS AND CATEGORIES IN A UNIQUE INPUT DATASET
 
