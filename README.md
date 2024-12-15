@@ -8,12 +8,10 @@ Here we describe the development of each step of the project. The main objective
  to work with structured data, NumPy library for numerical computations and working with arrays, the termcolor library used to colorize text printed in the 
  terminal, the seaborn and matplotlib library for creating statistical visualizations and more libraries that will be mention along the explication of our 
  project and code.
-  
  Secondly, we import the database mentioned above and we analyze the input data, which is a diccionary of 20130 cook recipes. Each recipe is define 
  with different variables, in total 8 variables that describe each recipe. These variables are 'directions', 'fat', 'date', 'categories', 'calories', 
  'description', 'protein', 'rating', 'title', 'ingredients' and 'sodium'. The variables 'fat', 'date', 'calories', 'protein', 'rating' and 'sodium' 
  contain numerical values and the rest of the variables contain text.
-  
  As a third step, we eliminate null lines in this dataset, with the 'isna' function, and proceed to visualize the relationship between the different input 
  variables. We focuss on the 'raiting' of each recipe as our target variable and it's relation with the 'categories'. We look to see if the rating of a 
  recipe depends on the categorie it has. Firstly we keep the 10 most common categories among all recipies, using functions like 'value_counts()' and 'explode()'
