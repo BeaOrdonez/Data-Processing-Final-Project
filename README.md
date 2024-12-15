@@ -153,9 +153,10 @@ contribute to the analysis, unifying the format of the text and reducing the com
 
 ![image](https://github.com/user-attachments/assets/97f8cf61-5410-4b86-a7d9-a26c3caa4885)
 
-      In this table can clearly be seen how the results are not as expected. R2 score and Mean Square Error (mse) have been chosen to measure the ability of the models according the different input
-  vecotrization methods. Focussing on the well known mse, we can appreciate that the best result is obtained for Random forest with TF-IDF while the worst is the Neural Network with the same
-  TF-IDF vector. With optimized hyperparameters and bigger input data size, these evaluations could provide better results. More features may improve results but may  require careful preprocessing to avoid noise. We could also consider the data normalization. 
+        In this table can clearly be seen how the results are not as expected. R2 score and Mean Square Error (mse) have been chosen to measure the ability of the models according the different input
+    vectORization methods. Focussing on the well known mse, we can appreciate that the best result is obtained for Random forest with TF-IDF while the worst is the Neural Network with the same
+    TF-IDF vector. With optimized hyperparameters and bigger input data size, these evaluations could provide better results. More features may improve results but may  require careful preprocessing to 
+    avoid noise. We could also consider the data normalization. 
 
 5. FINE-TUNNING
 
@@ -171,30 +172,30 @@ contribute to the analysis, unifying the format of the text and reducing the com
     It can clearly be seen that the results are not as expected. The Mean Square Error is 1.73 and the R2 score does not even reach 0.1. 
     
 6. EXTENSION: BYTE-PAIR ENCODING (BPE) 
-
-For the extension of our project, we chose another data representation named BPE (Byte-Pair Encoding).
-To train the BPE tokenizer, it has been initialized and configured with:
-
--->vocab_size = 5000 which limits the vocabulary to 5000 most frequent subwords.
-
--->min_frequency = 2 that includes only tokens that appear at least twice.
-
--->Special tokens ([PAD], [UNK], etc.) are added for padding and handling unknown words.
-
-Then, the tokenizer is trained on our descriptions list and saved for reuse later.
-In the encode description, each description is tokenized into subword IDs using the trained tokenizer saved previously. The result is a list of sequences of varying lengths, as each description is tokenized into different numbers of subword IDs.
-To evaluate with Random Forest, since this algorithm requires fixed-length input, each sequence is padded to the length of the longest sequence in the dataset.
-Padding is done using 0 (commonly used as a [PAD] token). 
-As a result, we got Mean Squared Error: 1.5551816774332363, R² Score:0.08452808785616595
-
-7. COMBINATION OF THREE FEATURES: directions, descriptions and categories in a unique dataset as the input variables
-
-In this part, we combined the three features in one input data for each recipe and repete the process to get the following results with random forest:
-
--->Word2Vec:  Mean Squared Error: 1.5661794699829648, R² Score: 0.07805413672816763
-
-
--->TD - IDF: Mean Squared Error: 1.6592607855772863, R² Score: 0.023260969339108373
-
-
-It can be clearly seen that Word2Vec is the best one with the minimum MSE and the closiest R2 score to 1. 
+    
+    For the extension of our project, we chose another data representation named BPE (Byte-Pair Encoding).
+    To train the BPE tokenizer, it has been initialized and configured with:
+    
+    -->vocab_size = 5000 which limits the vocabulary to 5000 most frequent subwords.
+    
+    -->min_frequency = 2 that includes only tokens that appear at least twice.
+    
+    -->Special tokens ([PAD], [UNK], etc.) are added for padding and handling unknown words.
+    
+    Then, the tokenizer is trained on our descriptions list and saved for reuse later.
+    In the encode description, each description is tokenized into subword IDs using the trained tokenizer saved previously. The result is a list of sequences of varying lengths, as each description is tokenized into different numbers of subword IDs.
+    To evaluate with Random Forest, since this algorithm requires fixed-length input, each sequence is padded to the length of the longest sequence in the dataset.
+    Padding is done using 0 (commonly used as a [PAD] token). 
+    As a result, we got Mean Squared Error: 1.5551816774332363, R² Score:0.08452808785616595
+    
+    7. COMBINATION OF THREE FEATURES: directions, descriptions and categories in a unique dataset as the input variables
+    
+    In this part, we combined the three features in one input data for each recipe and repete the process to get the following results with random forest:
+    
+    -->Word2Vec:  Mean Squared Error: 1.5661794699829648, R² Score: 0.07805413672816763
+    
+    
+    -->TD - IDF: Mean Squared Error: 1.6592607855772863, R² Score: 0.023260969339108373
+    
+    
+    It can be clearly seen that Word2Vec is the best one with the minimum MSE and the closiest R2 score to 1. 
