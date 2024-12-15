@@ -4,7 +4,7 @@ Here we describe the development of each step of the project. The main objective
 
 1. Analysis of input variables
 
- First of all, our first step was to import the corresponding libraries and modules needed for our Python program. Those are the pandas library in order 
+   First of all, our first step was to import the corresponding libraries and modules needed for our Python program. Those are the pandas library in order 
  to work with structured data, NumPy library for numerical computations and working with arrays, the termcolor library used to colorize text printed in the 
  terminal, the seaborn and matplotlib library for creating statistical visualizations and more libraries that will be mention along the explication of our 
  project and code.
