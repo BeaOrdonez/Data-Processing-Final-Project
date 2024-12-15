@@ -166,13 +166,14 @@ Then, the tokenizer is trained on our descriptions list and saved for reuse late
 In the encode description, each description is tokenized into subword IDs using the trained tokenizer saved previously. The result is a list of sequences of varying lengths, as each description is tokenized into different numbers of subword IDs.
 To evaluate with Random Forest, since this algorithm requires fixed-length input, each sequence is padded to the length of the longest sequence in the dataset.
 Padding is done using 0 (commonly used as a [PAD] token). 
-
 As a result, we got Mean Squared Error: 1.5551816774332363, R² Score:0.08452808785616595
 
-7. COMBINATION OF DIRECTIONS, DESCRIPTIONS AND CATEGORIES IN A UNIQUE INPUT DATASET
+7. COMBINATION OF THREE FEATURES: directions, descriptions and categories in a unique dataset as the input variables
 
 In this part, we combined the three features in one input data for each recipe and repete the process to get the following results with random forest:
+
 -->Word2Vec:  Mean Squared Error: 1.5661794699829648, R² Score: 0.07805413672816763
+
 
 -->TD - IDF: Mean Squared Error: 1.6592607855772863, R² Score: 0.023260969339108373
 
