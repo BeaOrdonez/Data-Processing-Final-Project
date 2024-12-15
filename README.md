@@ -153,7 +153,7 @@ contribute to the analysis, unifying the format of the text and reducing the com
 
 ![image](https://github.com/user-attachments/assets/97f8cf61-5410-4b86-a7d9-a26c3caa4885)
 
-        In this table can clearly be seen how the results are not as expected. R2 score and Mean Square Error (mse) have been chosen to measure the ability of the models according the different input
+    In this table can clearly be seen how the results are not as expected. R2 score and Mean Square Error (mse) have been chosen to measure the ability of the models according the different input
     vectORization methods. Focussing on the well known mse, we can appreciate that the best result is obtained for Random forest with TF-IDF while the worst is the Neural Network with the same
     TF-IDF vector. With optimized hyperparameters and bigger input data size, these evaluations could provide better results. More features may improve results but may  require careful preprocessing to 
     avoid noise. We could also consider the data normalization. 
@@ -163,13 +163,15 @@ contribute to the analysis, unifying the format of the text and reducing the com
    As a final attempt to improve the results, a transformer with a regression head has been implemented here. As a first step we need to train the model. The procedure is the following.
    
    --> We split out dataset into two train and test smaller datasets.
+   
    --> We tokenized the training data
+   
    --> Convert it to tensors and create a tensorDataset which we use to train the model using 3 epochs (Three complete passes through the entire dataset)
-   --> As a last step we prepare the test data the same way and we use it to test the predicting performance of the model. The results are shown below.
+   
+   --> As a last step we prepare the test data the same way and we use it to test the predicting performance of the model. The results are shown below. It can clearly be seen that the results
+   are not as expected. The Mean Square Error is 1.73 and the R2 score does not even reach 0.1. 
 
 ![image](https://github.com/user-attachments/assets/11efd02e-a7f1-4e57-8bee-63e66d9aa8f5)
-
-    It can clearly be seen that the results are not as expected. The Mean Square Error is 1.73 and the R2 score does not even reach 0.1. 
     
 6. EXTENSION: BYTE-PAIR ENCODING (BPE) 
     
