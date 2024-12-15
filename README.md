@@ -16,7 +16,7 @@ Here we describe the development of each step of the project. The main objective
     
     As a third step, we eliminate null lines in this dataset and proceed to visualize the relationship between the different input 
  variables. We focuss on the 'rating' of each recipe as our target variable and it's relation with the 'categories'. We do so to see if the rating of a 
- recipe depends on the categorie it has. Firstly we keep the 10 most common categories among all recipies, using functions like 'value_counts()' and 'explode()'
+ recipe depends on the category corresponds to that recipe. Firstly we keep the 10 most common categories among all recipes, using functions like 'value_counts()' and 'explode()'
  which help us isolate the categories. Then we look for the ratings of each of them and we plot a figure that represents the average ratings per category.
  Also, as a complementary step, we tested the correlation between numerical variables such as fat and calories with the target rating. We computed
  a correlation matrix where a positive correlation closer to 1 between 2 variables means that they have a proportional relation, if one increases, the other one increases as well.
