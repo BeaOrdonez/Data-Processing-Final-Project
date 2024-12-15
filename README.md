@@ -120,6 +120,7 @@ better results, GridSearchCV has been tried for Random Forest to perform Hyperpa
   vecotrization methods. Focussing on the well known mse, we can appreciate that the best result is obtained for Random forest with TF-IDF while the worst is the Neural Network with the same
   TF-IDF vector.
 With optimized hyperparameters and bigger input data size, these evaluations could provide better results. More features may improve results but may  require careful preprocessing to avoid noise. We could also consider the data normalization. 
+
 5. Fine-tunning
 
    As a final attempt to improve the results, a transformer with a regression head has been implemented here. As a first step we need to traing the model. To do so, we split out dataset into
@@ -128,3 +129,11 @@ With optimized hyperparameters and bigger input data size, these evaluations cou
 
 ![image](https://github.com/user-attachments/assets/11efd02e-a7f1-4e57-8bee-63e66d9aa8f5)
 
+7. Extension: Byte-Pair Encoding (BPE)
+
+
+8. Combination of directions, descriptions and categories in a unique input dataset
+
+In this part, we combined the three features in one input data for each recipe and repete the process to get the following results with random forest:
+
+It can be clearly seen that Word2Vec is the best one with the minimum MSE and the closiest R2 score to 1. 
