@@ -2,9 +2,9 @@
 
 Here we describe the development of each step of the project. The main objective is to apply Natural Language Processing (NLP) to process as set of recipies in the dataset "full_format_recipes". 
 
-1. Analysis of input variables
+1. ANALYSIS OF INPUT VARIABLES
 
-   First of all, our first step was to import the corresponding libraries and modules needed for our Python program. Those are the pandas library in order 
+    First of all, our first step was to import the corresponding libraries and modules needed for our Python program. Those are the pandas library in order 
  to work with structured data, NumPy library for numerical computations and working with arrays, the termcolor library used to colorize text printed in the 
  terminal, the seaborn and matplotlib library for creating statistical visualizations and more libraries that will be mention along the explication of our 
  project and code.
@@ -19,16 +19,16 @@ Here we describe the development of each step of the project. The main objective
  recipe depends on the categorie it has. Firstly we keep the 10 most common categories among all recipies, using functions like 'value_counts()' and 'explode()'
  which help us isolate the categories. Then we look for the ratings of each of them and we plot a figure that represents the average ratings per category. 
  A part from analysing 'categories', we implemented a correlation relationship between numerical elements such as fat and calories with the target rating. We computed
-a correlation matrix where a positive correlation closer to 1 between 2 variables means that the 2 vaariables have a proportional relation, if one increases, the other one increases as well.
-Correlation close to 0 means that there is no linear relation. And negative correlation means that the variables are inversely related. The matrix can be seen in the following picture 
+ a correlation matrix where a positive correlation closer to 1 between 2 variables means that the 2 vaariables have a proportional relation, if one increases, the other one increases as well.
+ Correlation close to 0 means that there is no linear relation. And negative correlation means that the variables are inversely related. The matrix can be seen in the following picture 
  ![image](https://github.com/user-attachments/assets/70e7ed09-cbdd-4200-be20-815723f3652c)
 
 
-2. Implementation of a pipeline for text processing
+2. IMPLEMENTATION OF A PIPELINE FOR TEXT PROCESSING
 
-      In this section we first import the NLTK library, which is a powerful toolkit for working with text data in Python. We import the re module, used for pattern matching and text cleaning.
-   We use preprocessing functions in order to improve the quality of textual data by: eliminating elements that do not add value, unifying the format of the text and reducing the complexity of
-   the vocabulary, in order to prepare the text for models to process it more efficiently and accurately.
+     In this section we first import the NLTK library, which is a powerful toolkit for working with text data in Python. We import the re module, used for pattern matching and text cleaning.
+  We use preprocessing functions in order to improve the quality of textual data by: eliminating elements that do not add value, unifying the format of the text and reducing the complexity of
+  the vocabulary, in order to prepare the text for models to process it more efficiently and accurately.
 
    2.1. Preprocess "Desc" column
    
@@ -57,7 +57,7 @@ Correlation close to 0 means that there is no linear relation. And negative corr
    
    
 
-3. Vector representation of the document usinf three different procedures
+3. VECTOR REPRESENTATION OF THE DOCUMENTS USING THREE DIFFERENT PROCEDURES
  In this section three vectorization methods have been used, TF-IDF, Word2Vec and Trasformers.
  It is important to mention that the input data used here corresponds to the column "Descriptions".
   
@@ -102,7 +102,7 @@ Correlation close to 0 means that there is no linear relation. And negative corr
            In addition, we also extract the ratings column from the dataset as the target variable for training machine learning models.
 
 
-5. Training and evaluation of regression model.
+4. TRAINING AND EVALUATION OF REGRESSION MODELS
    
     Once the vectorization of the descriptions has been done we proceed to use the embeddings to train and evaluate predicction models. Random Forest and Neural Networks have been used. The scikit learn tool and pytorch were used for their implementation. 
 
@@ -142,7 +142,7 @@ better results, GridSearchCV has been tried for Random Forest to perform Hyperpa
   TF-IDF vector.
 With optimized hyperparameters and bigger input data size, these evaluations could provide better results. More features may improve results but may  require careful preprocessing to avoid noise. We could also consider the data normalization. 
 
-6. Fine-tunning
+5. FINE-TUNNING
 
    As a final attempt to improve the results, a transformer with a regression head has been implemented here. As a first step we need to traing the model. To do so, we split out dataset into
    two train and test smaller datasets. Then we tokenized the training data, convert it to tensors, create a tensorDataset and use it to train the model using 3 epochs (Three complete
@@ -150,10 +150,10 @@ With optimized hyperparameters and bigger input data size, these evaluations cou
 
 ![image](https://github.com/user-attachments/assets/11efd02e-a7f1-4e57-8bee-63e66d9aa8f5)
 
-7. Extension: Byte-Pair Encoding (BPE)
+6. EXTENSION: BYTE-PAIR ENCODING (BPE) 
 
 
-8. Combination of directions, descriptions and categories in a unique input dataset
+7. COMBINATION OF DIRECTIONS, DESCRIPTIONS AND CATEGORIES IN A UNIQUE INPUT DATASET
 
 In this part, we combined the three features in one input data for each recipe and repete the process to get the following results with random forest:
 
