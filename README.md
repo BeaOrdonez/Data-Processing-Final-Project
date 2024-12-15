@@ -88,17 +88,21 @@ Here we describe the development of each step of the project. The main objective
  -->For the implementation of this neural network, here are the followed steps and their hyper parameters:  
 
 Data splitting step
+
 In data splitting, test_size = 0.2 to put 20% of the data in the testing dataset to ensure that the model is evaluated on unseen data.  
 
 Model implementation
+
 ReLU Activation Function helps the network learn efficiently by adding non-linearity so it effects learning efficiency and non-linearity
 Number of hidden layers and neurons determines the model's capacity to learn patterns. 128 has been chosen for the first layer neuron number and 64 for the second one. 
 
 Training step
+
 Adam optimizer, efficient for deep learning tasks, has been used to adjust the model's weights using gradients to minimize the loss function. The learning rate controls the size of updates to the weights. Too high value can overshoot the optimal solution and too low value slows training, so we chose 0.001 for our case. 
 The number of epochs is the number of times the model sees the training data and the batch size is the number of data processed at a time for efficiency. 
 
 In the evaluation step, the following metrics have been used.
+
 Mean Squared error or test Loss (MSE): Indicates how well the model predicts unseen data. It measures the average squared difference between predicted and actual values. The smaller the value is, the better predictions are.
 R² Score: measures how well the model explains the variance in the target variable. The closer the value is to 1, the better it is.
 Improvements: With optimized hyperparameters and sufficient data preprocessing, this approach could provide better results. More features may improve results but may  require careful preprocessing to avoid noise. We could also consider the data normalization. 
