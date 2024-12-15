@@ -154,7 +154,6 @@ With optimized hyperparameters and bigger input data size, these evaluations cou
 6. EXTENSION: BYTE-PAIR ENCODING (BPE) 
 
 For the extension of our project, we chose another data representation named BPE (Byte-Pair Encoding).
-
 To train the BPE tokenizer, it has been initialized and configured with:
 
 -->vocab_size = 5000 which limits the vocabulary to 5000 most frequent subwords.
@@ -164,9 +163,7 @@ To train the BPE tokenizer, it has been initialized and configured with:
 -->Special tokens ([PAD], [UNK], etc.) are added for padding and handling unknown words.
 
 Then, the tokenizer is trained on our descriptions list and saved for reuse later.
-
 In the encode description, each description is tokenized into subword IDs using the trained tokenizer saved previously. The result is a list of sequences of varying lengths, as each description is tokenized into different numbers of subword IDs.
-
 To evaluate with Random Forest, since this algorithm requires fixed-length input, each sequence is padded to the length of the longest sequence in the dataset.
 Padding is done using 0 (commonly used as a [PAD] token). 
 
@@ -175,8 +172,9 @@ As a result, we got Mean Squared Error: 1.5551816774332363, R² Score:0.08452808
 7. COMBINATION OF DIRECTIONS, DESCRIPTIONS AND CATEGORIES IN A UNIQUE INPUT DATASET
 
 In this part, we combined the three features in one input data for each recipe and repete the process to get the following results with random forest:
-Word2Vec:  Mean Squared Error: 1.5661794699829648, R² Score: 0.07805413672816763
+-->Word2Vec:  Mean Squared Error: 1.5661794699829648, R² Score: 0.07805413672816763
 
-TD - IDF: Mean Squared Error: 1.6592607855772863, R² Score: 0.023260969339108373
+-->TD - IDF: Mean Squared Error: 1.6592607855772863, R² Score: 0.023260969339108373
+
 
 It can be clearly seen that Word2Vec is the best one with the minimum MSE and the closiest R2 score to 1. 
