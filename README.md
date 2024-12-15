@@ -1,5 +1,5 @@
 # Data-Processing-Final-Project
-
+holi
 Here we describe the development of each step of the project. The main objective is to apply Natural Language Processing (NLP) to process as set of recipies in the dataset "full_format_recipes". 
 
 1. Analysis of input variables
