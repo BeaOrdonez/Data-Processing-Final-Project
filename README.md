@@ -1,10 +1,10 @@
 # Data-Processing-Final-Project
 
-# Marta Montalbán, Aïssétou Sogoba, Beatriz Ordóñez
+#### Marta Montalbán, Aïssétou Sogoba, Beatriz Ordóñez
 
 Here we describe the development of each step of the project. The main objective is to apply Natural Language Processing (NLP) to process a set of recipies in the dataset "full_format_recipes". 
 
-# 1. ANALYSIS OF INPUT VARIABLES
+#### 1. ANALYSIS OF INPUT VARIABLES
 
     First of all, our first step was to import the corresponding libraries and modules needed for our Python program. Those are the pandas library in order 
  to work with structured data, NumPy library for numerical computations and working with arrays, the termcolor library used to colorize text printed in the 
