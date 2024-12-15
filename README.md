@@ -85,7 +85,7 @@ Here we describe the development of each step of the project. The main objective
    
     Once the vectorization of the descriptions has been done we proceed to use the embeddings to train and evaluate predicction models. Random Forest and Neural Networks have been used. The scikit learn tool and pytorch were used for their implementation. 
 
- -->For the implementation of this neural network, the followed steps and their hyper parameters are:  
+ -->For the implementation of this neural network, here are the followed steps and their hyper parameters:  
 
 Data splitting step
 In data splitting, test_size = 0.2 to put 20% of the data in the testing dataset to ensure that the model is evaluated on unseen data.  
@@ -104,6 +104,7 @@ R² Score: measures how well the model explains the variance in the target varia
 Improvements: With optimized hyperparameters and sufficient data preprocessing, this approach could provide better results. More features may improve results but may  require careful preprocessing to avoid noise. We could also consider the data normalization. 
 
  -->Random forest
+ 
 Thanks to Scikit Learn, this implementation is really easy to do. We only need two hyper parameters for the data splitting part and as in the Neural Network, we used 20% of the data for testing and 80% for the training part. This 80% is used to train the RandomForestRegressor model provided by scikit learn. Then the model predictions are made on the test data. The same metrics MSE and R² Score have been used. 
 
 The results are represented in the table below. Here the two models have been used with they default parameters as defined in the explanations. Nevertheless, in order to achieve
