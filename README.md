@@ -25,7 +25,7 @@ Here we describe the development of each step of the project. The main objective
  ![image](https://github.com/user-attachments/assets/70e7ed09-cbdd-4200-be20-815723f3652c)
 
 
-3. IMPLEMENTATION OF A PIPELINE FOR TEXT PROCESSING
+2. IMPLEMENTATION OF A PIPELINE FOR TEXT PROCESSING
 
      In this section we first import the NLTK library, which is a powerful toolkit for working with text data in Python. We import the re module, used for pattern matching and text cleaning.
   We use preprocessing functions in order to improve the quality of textual data by: eliminating elements that do not add value, unifying the format of the text and reducing the complexity of
@@ -58,7 +58,7 @@ Here we describe the development of each step of the project. The main objective
    
    
 
-4. VECTOR REPRESENTATION OF THE DOCUMENTS USING THREE DIFFERENT PROCEDURES
+3. VECTOR REPRESENTATION OF THE DOCUMENTS USING THREE DIFFERENT PROCEDURES
  In this section three vectorization methods have been used, TF-IDF, Word2Vec and Trasformers.
  It is important to mention that the input data used here corresponds to the column "Descriptions".
   
@@ -103,7 +103,7 @@ Here we describe the development of each step of the project. The main objective
            In addition, we also extract the ratings column from the dataset as the target variable for training machine learning models.
 
 
-5. TRAINING AND EVALUATION OF REGRESSION MODELS
+4. TRAINING AND EVALUATION OF REGRESSION MODELS
    
     Once the vectorization of the descriptions has been done we proceed to use the embeddings to train and evaluate predicction models. Random Forest and Neural Networks have been used. The scikit learn tool and pytorch were used for their implementation. 
 
