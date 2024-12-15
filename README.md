@@ -3,24 +3,23 @@
 Here we describe the development of each step of the project. The main objective is to apply Natural Language Processing (NLP) to process as set of recipies in the dataset "full_format_recipes". 
 
 1. Analysis of input variables
-   
- First of all, our first step was to import the corresponding libraries and modules needed for our Python program. Those are the pandas library in order to 
- work with structured data, NumPy library for numerical computations and working with arrays, the termcolor library used to colorize text printed in the 
+
+ First of all, our first step was to import the corresponding libraries and modules needed for our Python program. Those are the pandas library in order 
+ to work with structured data, NumPy library for numerical computations and working with arrays, the termcolor library used to colorize text printed in the 
  terminal, the seaborn and matplotlib library for creating statistical visualizations and more libraries that will be mention along the explication of our 
  project and code.
   
  Secondly, we import the database mentioned above and we analyze the input data, which is a diccionary of 20130 cook recipes. Each recipe is define 
  with different variables, in total 8 variables that describe each recipe. These variables are 'directions', 'fat', 'date', 'categories', 'calories', 
- 'description', 'protein', 'rating', 'title', 'ingredients' and 'sodium'. The variables 'fat', 'date', 'calories', 'protein', 'rating' and 'sodium' contain 
- numerical values and the rest of the variables contain text.
+ 'description', 'protein', 'rating', 'title', 'ingredients' and 'sodium'. The variables 'fat', 'date', 'calories', 'protein', 'rating' and 'sodium' 
+ contain numerical values and the rest of the variables contain text.
   
  As a third step, we eliminate null lines in this dataset, with the 'isna' function, and proceed to visualize the relationship between the different input 
- variables. We focuss on the 'raiting' of each recipe as our target variable and it's relation with the 'categories'. We look to see if the rating of a recipe
- depends on the categorie it has.
- Firstly we keep the 10 most common categories among all recipies, using functions like 'value_counts()' and 'explode()' which help us isolate the categories.
- Then we look for the ratings of each of them and we plot a figure that represents the average ratings per category. Moreover, we analyze the correlation between
- numerical elements such as fat and calories with the target rating, we computed a correlation matrix. A positive correlation closer to 1
- between 2 variables means that the two have a linear relation, if one increases, the other one increases as well. Correlation close to 0 
+ variables. We focuss on the 'raiting' of each recipe as our target variable and it's relation with the 'categories'. We look to see if the rating of a 
+ recipe depends on the categorie it has. Firstly we keep the 10 most common categories among all recipies, using functions like 'value_counts()' and 'explode()'
+ which help us isolate the categories. Then we look for the ratings of each of them and we plot a figure that represents the average ratings per category. 
+ Moreover, we analyze the correlation between numerical elements such as fat and calories with the target rating, we computed a correlation matrix. A positive
+ correlation closer to 1 between 2 variables means that the two have a linear relation, if one increases, the other one increases as well. Correlation close to 0 
  means that there is no linear relation. And negative correlation means that the variables are inversely related. 
  
  ![image](https://github.com/user-attachments/assets/70e7ed09-cbdd-4200-be20-815723f3652c)
