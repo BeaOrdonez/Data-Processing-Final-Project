@@ -158,7 +158,7 @@ contribute to the analysis, unifying the format of the text and reducing the com
     TF-IDF vector. With optimized hyperparameters and bigger input data size, these evaluations could provide better results. More features may improve results but may  require careful preprocessing to 
     avoid noise. We could also consider the data normalization. 
 
-6. FINE-TUNNING
+6. FINE-TUNING
 
    As a final attempt to improve the results, a transformer with a regression head has been implemented here. As a first step we need to train the model. The procedure is the following.
    
