@@ -131,7 +131,7 @@ Improvements: With optimized hyperparameters and sufficient data preprocessing, 
 
  -->Random forest
  
-Thanks to Scikit Learn, this implementation is really easy to do. We only need two hyper parameters for the data splitting part and as in the Neural Network, we used 20% of the data for testing and 80% for the training part. This 80% is used to train the RandomForestRegressor model provided by scikit learn. Then the model predictions are made on the test data. The same metrics MSE and R² Score have been used. 
+Thanks to Scikit Learn, this implementation is really easy to do. To get our results, we only needed two hyper parameters for the data splitting part and as in the Neural Network, we used 20% of the data for testing and 80% for the training part. This 80% is used to train the RandomForestRegressor model provided by scikit learn. Then the model predictions are made on the test data. Some hyperparameters such as random_state with the default value 42, n_estimators commonly set at 100 could be used to improve the results by trying to tune them to better values for better results. The same metrics of evaluation MSE and R² Score have been used. 
 
 The results are represented in the table below. Here the two models have been used with they default parameters as defined in the explanations. Nevertheless, in order to achieve
 better results, GridSearchCV has been tried for Random Forest to perform Hyperparameter selection, with results that do not differ much from the ones obtain with the default parameters.
@@ -153,6 +153,24 @@ With optimized hyperparameters and bigger input data size, these evaluations cou
 
 6. EXTENSION: BYTE-PAIR ENCODING (BPE) 
 
+For the extension of our project, we chose another data representation named BPE (Byte-Pair Encoding).
+
+To train the BPE tokenizer, it has been initialized and configured with:
+
+-->vocab_size = 5000 which limits the vocabulary to 5000 most frequent subwords.
+
+-->min_frequency = 2 that includes only tokens that appear at least twice.
+
+-->Special tokens ([PAD], [UNK], etc.) are added for padding and handling unknown words.
+
+Then, the tokenizer is trained on our descriptions list and saved for reuse later.
+
+In the encode description, each description is tokenized into subword IDs using the trained tokenizer saved previously. The result is a list of sequences of varying lengths, as each description is tokenized into different numbers of subword IDs.
+
+To evaluate with Random Forest, since this algorithm requires fixed-length input, each sequence is padded to the length of the longest sequence in the dataset.
+Padding is done using 0 (commonly used as a [PAD] token). 
+
+As a reullt, we got Mean Squared Error: 1.5551816774332363, R² Score:0.08452808785616595
 
 7. COMBINATION OF DIRECTIONS, DESCRIPTIONS AND CATEGORIES IN A UNIQUE INPUT DATASET
 
